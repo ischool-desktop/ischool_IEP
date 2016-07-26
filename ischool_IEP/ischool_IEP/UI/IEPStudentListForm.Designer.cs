@@ -32,9 +32,10 @@
             // 
             // IEPStudentListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 261);
+            this.ClientSize = new System.Drawing.Size(326, 216);
+            this.DoubleBuffered = true;
             this.Name = "IEPStudentListForm";
             this.Text = "IEP學生清單";
             this.ResumeLayout(false);
