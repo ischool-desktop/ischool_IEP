@@ -37,6 +37,48 @@ namespace ischool_IEP
                  UI.SetOpenDatetimeForm sof = new UI.SetOpenDatetimeForm();
                  sof.ShowDialog();
              };
+
+             // 設定輸入選項
+             string regCodeSetInputItem = "ischool_IEP_SetInputItemsForm";
+             catalog01.Add(new RibbonFeature(regCodeSetInputItem, "設定輸入選項"));
+             RibbonBarItem item02 = K12.Presentation.NLDPanels.Student.RibbonBarItems["IEP"];
+             // item02["設定"].Image = Properties.Resources.Report;
+             item02["設定"].Size = RibbonBarButton.MenuButtonSize.Large;
+             item02["設定"]["設定輸入選項"].Enable = UserAcl.Current[regCodeSetInputItem].Executable;
+             item02["設定"]["設定輸入選項"].Click += delegate
+             {
+                 UI.SetInputItemsForm sif = new UI.SetInputItemsForm();
+                 sif.ShowDialog();
+             };
+
+
+             // 設定輸入選項
+             string regCodeAddRStudent = "ischool_IEP_AddRemoveStudent";
+             catalog01.Add(new RibbonFeature(regCodeAddRStudent, "指定/移除 IEP 學生"));
+
+             K12.Presentation.NLDPanels.Student.ListPaneContexMenu["指定IEP學生"].Enable = UserAcl.Current[regCodeAddRStudent].Executable;
+             K12.Presentation.NLDPanels.Student.ListPaneContexMenu["指定IEP學生"].Click += delegate { 
+                if(K12.Presentation.NLDPanels.Student.SelectedSource.Count>0)
+                {
+                    UI.AddIEPStudentForm aif = new UI.AddIEPStudentForm();
+                    aif.SetStudentIDList(K12.Presentation.NLDPanels.Student.SelectedSource);
+                    aif.ShowDialog();
+                }             
+             };
+
+             K12.Presentation.NLDPanels.Student.ListPaneContexMenu["移除IEP學生"].Enable = UserAcl.Current[regCodeAddRStudent].Executable;
+             K12.Presentation.NLDPanels.Student.ListPaneContexMenu["移除IEP學生"].Click += delegate
+             {
+                 if (K12.Presentation.NLDPanels.Student.SelectedSource.Count > 0)
+                 {
+                     UI.RemoveIEPStudentForm rif = new UI.RemoveIEPStudentForm();
+                     rif.SetStudentIDList(K12.Presentation.NLDPanels.Student.SelectedSource);
+                     rif.ShowDialog();
+                 }             
+
+             };
+
+
          }
 
          static void _bgLLoadUDT_DoWork(object sender, DoWorkEventArgs e)

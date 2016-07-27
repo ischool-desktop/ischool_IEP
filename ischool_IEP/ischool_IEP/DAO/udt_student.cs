@@ -6,13 +6,13 @@ using FISCA.UDT;
 
 namespace ischool_IEP.DAO
 {
-      [TableName("ischool.iep.open_datetime")]
+      [TableName("ischool.iep.student")]
     class udt_student:ActiveRecord
     {
         ///<summary>
         /// 學生系統編號
         ///</summary>
-        [Field(Field = "ref_student_id", Indexed = false)]
+        [Field(Field = "ref_student_id", Indexed = true)]
         public int StudentID { get; set; }
 
         ///<summary>

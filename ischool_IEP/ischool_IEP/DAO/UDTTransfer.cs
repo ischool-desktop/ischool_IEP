@@ -37,5 +37,22 @@ namespace ischool_IEP.DAO
             value = accHelper.Select<udt_input_item>();
             return value;
         }
+
+        /// <summary>
+        /// 取得指定 IEP 學生
+        /// </summary>
+        /// <returns></returns>
+        public static List<udt_student> GetIEPStudentByStudentIDList(List<int> idList)
+        {
+            List<udt_student> value = new List<udt_student>();
+            if(idList.Count>0)
+            {
+                string qry = "ref_student_id in("+string.Join(",",idList.ToArray())+")";
+                AccessHelper accHelper = new AccessHelper();
+                value = accHelper.Select<udt_student>(qry);
+
+            }
+            return value;
+        }
     }
 }

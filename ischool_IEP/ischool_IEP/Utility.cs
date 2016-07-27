@@ -20,6 +20,9 @@ namespace ischool_IEP
         {
             FISCA.UDT.SchemaManager Manager = new SchemaManager(new FISCA.DSAUtil.DSConnection(FISCA.Authentication.DSAServices.DefaultDataSource));
             Manager.SyncSchema(new udt_open_datetime()); // 開放結束時間
+            Manager.SyncSchema(new udt_input_item());  // 輸入選項
+            Manager.SyncSchema(new udt_student()); // iep 學生
+            Manager.SyncSchema(new udt_input_data()); // iep  老師輸入值
         }
 
         /// <summary>
