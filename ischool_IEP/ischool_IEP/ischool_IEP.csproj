@@ -100,11 +100,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\QueryData.cs" />
+    <Compile Include="DAO\StudentIEPData.cs" />
     <Compile Include="DAO\UDTTransfer.cs" />
     <Compile Include="DAO\udt_input_data.cs" />
     <Compile Include="DAO\udt_input_item.cs" />
     <Compile Include="DAO\udt_open_datetime.cs" />
     <Compile Include="DAO\udt_student.cs" />
+    <Compile Include="DetailContent\InputDataContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailContent\InputDataContent.Designer.cs">
+      <DependentUpon>InputDataContent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\AddIEPStudentForm.cs">
@@ -112,6 +120,12 @@
     </Compile>
     <Compile Include="UI\AddIEPStudentForm.Designer.cs">
       <DependentUpon>AddIEPStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IEPInputDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\IEPInputDataForm.Designer.cs">
+      <DependentUpon>IEPInputDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\IEPStudentListForm.cs">
       <SubType>Form</SubType>
@@ -140,8 +154,14 @@
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DetailContent\InputDataContent.resx">
+      <DependentUpon>InputDataContent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddIEPStudentForm.resx">
       <DependentUpon>AddIEPStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\IEPInputDataForm.resx">
+      <DependentUpon>IEPInputDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\IEPStudentListForm.resx">
       <DependentUpon>IEPStudentListForm.cs</DependentUpon>
@@ -194,6 +214,7 @@
   <ItemGroup>
     <None Include="Library\FISCA.dll.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

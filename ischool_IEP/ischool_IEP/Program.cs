@@ -78,6 +78,12 @@ namespace ischool_IEP
 
              };
 
+             // 資料項目-IEP 輸入資料
+             Catalog catalog02 = RoleAclSource.Instance["學生"]["資料項目"];
+             catalog02.Add(new DetailItemFeature(typeof(DetailContent.InputDataContent)));
+             FeatureAce UserPermission = FISCA.Permission.UserAcl.Current["ischool_IEP_InputDataContent"];
+             if (UserPermission.Editable)
+                 K12.Presentation.NLDPanels.Student.AddDetailBulider(new DetailBulider<DetailContent.InputDataContent>());
 
          }
 
