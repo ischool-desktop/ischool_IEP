@@ -21,6 +21,8 @@ namespace ischool_IEP.UI
         public RemoveIEPStudentForm()
         {
             InitializeComponent();
+            _bgLoadData = new BackgroundWorker();
+            _bgSaveData = new BackgroundWorker();
             _bgLoadData.DoWork += _bgLoadData_DoWork;
             _bgLoadData.RunWorkerCompleted += _bgLoadData_RunWorkerCompleted;
             _bgLoadData.RunWorkerAsync();

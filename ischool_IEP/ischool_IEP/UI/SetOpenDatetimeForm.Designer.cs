@@ -73,6 +73,7 @@
             // 
             this.txtEndDate.Border.Class = "TextBoxBorder";
             this.txtEndDate.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtEndDate.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.txtEndDate.Location = new System.Drawing.Point(79, 70);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(184, 25);
@@ -86,6 +87,7 @@
             // 
             this.txtBeginDate.Border.Class = "TextBoxBorder";
             this.txtBeginDate.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBeginDate.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.txtBeginDate.Location = new System.Drawing.Point(79, 30);
             this.txtBeginDate.Name = "txtBeginDate";
             this.txtBeginDate.Size = new System.Drawing.Size(184, 25);
