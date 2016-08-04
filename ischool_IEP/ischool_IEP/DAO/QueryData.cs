@@ -19,7 +19,7 @@ namespace ischool_IEP.DAO
             List<StudentIEPData> value = new List<StudentIEPData>();
             if(!string.IsNullOrWhiteSpace(StudentID))
             {
-                string strSQL = "select uid as uid,student.id as sid,student.name as studentname,course.course_name as coursename,course.subject as subjectname,(case nickname when '' then teacher.teacher_name else teacher.teacher_name ||'('||teacher.nickname||')' end) as teachername,exam_name as examname,exam_types as examtypes,item_value as itemvalue from $ischool.iep.input_data inner join student on $ischool.iep.input_data.ref_student_id = student.id inner join course on $ischool.iep.input_data.ref_course_id = course.id inner join teacher on $ischool.iep.input_data.ref_teacher_id = teacher.id where student.id =" + StudentID + " order by studentname,coursename,examname,examtypes,itemvalue";
+                string strSQL = "select uid as uid,student.id as sid,student.name as studentname,course.course_name as coursename,course.subject as subjectname,(case nickname when '' then teacher.teacher_name else teacher.teacher_name ||'('||teacher.nickname||')' end) as teachername,exam as exam,type as type,value as value from $ischool.iep.input_data inner join student on $ischool.iep.input_data.ref_student_id = student.id inner join course on $ischool.iep.input_data.ref_course_id = course.id inner join teacher on $ischool.iep.input_data.ref_teacher_id = teacher.id where student.id =" + StudentID + " order by studentname,coursename,exam,type,value";
                 QueryHelper qh = new QueryHelper();
                 DataTable dt = qh.Select(strSQL);
 
@@ -31,9 +31,9 @@ namespace ischool_IEP.DAO
                     sd.CourseName = dr["coursename"].ToString();
                     sd.StudentName = dr["studentname"].ToString();
                     sd.TeacherName = dr["teachername"].ToString();
-                    sd.ExamName = dr["examname"].ToString();
-                    sd.ExamTypes = dr["examtypes"].ToString();
-                    sd.ItemValue = dr["itemvalue"].ToString();
+                    sd.ExamName = dr["exam"].ToString();
+                    sd.ExamTypes = dr["type"].ToString();
+                    sd.ItemValue = dr["value"].ToString();
                     value.Add(sd);
                 }
             }

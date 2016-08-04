@@ -23,6 +23,7 @@ namespace ischool_IEP
             Manager.SyncSchema(new udt_input_item());  // 輸入選項
             Manager.SyncSchema(new udt_student()); // iep 學生
             Manager.SyncSchema(new udt_input_data()); // iep  老師輸入值
+            Manager.SyncSchema(new udt_input_memo()); // iep  老師輸入值
         }
 
         /// <summary>

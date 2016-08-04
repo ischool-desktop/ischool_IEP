@@ -26,5 +26,12 @@ namespace ischool_IEP.DAO
         ///</summary>
         [Field(Field = "item", Indexed = false)]
         public string Item { get; set; }
+
+        ///<summary>
+        /// 排序
+        ///</summary>
+        [Field(Field = "order", Indexed = false)]
+        public int? Order { get; set; }
+
     }
 }

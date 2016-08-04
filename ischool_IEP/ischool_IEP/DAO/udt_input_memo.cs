@@ -9,8 +9,8 @@ namespace ischool_IEP.DAO
     /// <summary>
     /// IEP 老師輸入後值
     /// </summary>
-    [TableName("ischool.iep.input_data")]
-    class udt_input_data:ActiveRecord
+    [TableName("ischool.iep.input_memo")]
+    class udt_input_memo:ActiveRecord
     {
         ///<summary>
         /// 學生系統編號
@@ -40,18 +40,12 @@ namespace ischool_IEP.DAO
         /// 評量類別
         ///</summary>
         [Field(Field = "type", Indexed = false)]
-        public string Type { get; set; }
+        public string Type { get; set; }    
 
         ///<summary>
-        /// 項目
+        /// 內容
         ///</summary>
-        [Field(Field = "item", Indexed = false)]
-        public string Item { get; set; }
-
-        ///<summary>
-        /// 值
-        ///</summary>
-        [Field(Field = "value", Indexed = false)]
-        public string Value { get; set; }
+        [Field(Field = "content", Indexed = false)]
+        public string Content { get; set; }
     }
 }

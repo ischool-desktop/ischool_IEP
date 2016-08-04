@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgData = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.colExamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExamTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExport = new DevComponents.DotNetBar.ButtonX();
             this.btnImport = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.lblMsg = new DevComponents.DotNetBar.LabelX();
+            this.colExamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExamTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,37 +52,22 @@
             this.dgData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colExamName,
             this.colExamTypes,
-            this.colItem});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgData.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colItem,
+            this.colOrder});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgData.Location = new System.Drawing.Point(14, 12);
             this.dgData.Name = "dgData";
             this.dgData.RowTemplate.Height = 24;
             this.dgData.Size = new System.Drawing.Size(605, 208);
             this.dgData.TabIndex = 0;
-            // 
-            // colExamName
-            // 
-            this.colExamName.HeaderText = "評量名稱";
-            this.colExamName.Name = "colExamName";
-            // 
-            // colExamTypes
-            // 
-            this.colExamTypes.HeaderText = "評量分類";
-            this.colExamTypes.Name = "colExamTypes";
-            // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "項目";
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 200;
             // 
             // btnExport
             // 
@@ -120,7 +106,7 @@
             this.btnSave.AutoSize = true;
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSave.Location = new System.Drawing.Point(461, 231);
+            this.btnSave.Location = new System.Drawing.Point(463, 231);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 25);
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -158,6 +144,27 @@
             this.lblMsg.Size = new System.Drawing.Size(244, 23);
             this.lblMsg.TabIndex = 5;
             // 
+            // colExamName
+            // 
+            this.colExamName.HeaderText = "評量名稱";
+            this.colExamName.Name = "colExamName";
+            // 
+            // colExamTypes
+            // 
+            this.colExamTypes.HeaderText = "評量分類";
+            this.colExamTypes.Name = "colExamTypes";
+            // 
+            // colItem
+            // 
+            this.colItem.HeaderText = "項目";
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 200;
+            // 
+            // colOrder
+            // 
+            this.colOrder.HeaderText = "順序";
+            this.colOrder.Name = "colOrder";
+            // 
             // SetInputItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -182,13 +189,14 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.DataGridViewX dgData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExamName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExamTypes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
         private DevComponents.DotNetBar.ButtonX btnExport;
         private DevComponents.DotNetBar.ButtonX btnImport;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private DevComponents.DotNetBar.ButtonX btnExit;
         private DevComponents.DotNetBar.LabelX lblMsg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExamTypes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrder;
     }
 }

@@ -41,12 +41,13 @@ namespace ischool_IEP.UI
         {
             dgData.Rows.Clear();
             dgData.SuspendLayout();
-            foreach(var data in _InputItemList)
+            foreach (udt_input_item data in _InputItemList)
             {
                 int RowIdx = dgData.Rows.Add();
                 dgData.Rows[RowIdx].Cells[colExamName.Index].Value = data.ExamName;
                 dgData.Rows[RowIdx].Cells[colExamTypes.Index].Value = data.ExamTypes;
                 dgData.Rows[RowIdx].Cells[colItem.Index].Value = data.Item;
+                dgData.Rows[RowIdx].Cells[colOrder.Index].Value = data.Order;               
             }
             dgData.ResumeLayout(false);
         }
@@ -122,6 +123,17 @@ namespace ischool_IEP.UI
                         item.Item = "";
                     else
                         item.Item = drv.Cells[colItem.Index].Value.ToString();
+
+                    if (drv.Cells[colOrder.Index].Value == null)
+                        item.Order = null;
+                    else
+                    {
+                        int num;
+                        if(int.TryParse(drv.Cells[colOrder.Index].Value.ToString(),out num))
+                        {
+                            item.Order = num;
+                        }
+                    }
 
                     addItemList.Add(item);
                 }

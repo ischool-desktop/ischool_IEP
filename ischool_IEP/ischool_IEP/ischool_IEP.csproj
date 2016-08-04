@@ -105,6 +105,7 @@
     <Compile Include="DAO\UDTTransfer.cs" />
     <Compile Include="DAO\udt_input_data.cs" />
     <Compile Include="DAO\udt_input_item.cs" />
+    <Compile Include="DAO\udt_input_memo.cs" />
     <Compile Include="DAO\udt_open_datetime.cs" />
     <Compile Include="DAO\udt_student.cs" />
     <Compile Include="DetailContent\InputDataContent.cs">
