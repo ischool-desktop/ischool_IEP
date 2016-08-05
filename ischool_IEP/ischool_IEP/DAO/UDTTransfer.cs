@@ -54,5 +54,24 @@ namespace ischool_IEP.DAO
             }
             return value;
         }
+
+        public static List<udt_input_data> GetIEPDataByStudentID(string StudentID)
+        {
+            List<udt_input_data> value = new List<udt_input_data>();
+            string qry = "ref_student_id=" + StudentID;
+            AccessHelper accHelper = new AccessHelper();
+            value = accHelper.Select<udt_input_data>(qry);
+            return value;
+        }
+
+        public static List<udt_input_memo> GetIEPDataMemoByStudentID(string StudentID)
+        {
+            List<udt_input_memo> value = new List<udt_input_memo>();
+            string qry = "ref_student_id=" + StudentID;
+            AccessHelper accHelper = new AccessHelper();
+            value = accHelper.Select<udt_input_memo>(qry);
+            return value;
+        }
+
     }
 }

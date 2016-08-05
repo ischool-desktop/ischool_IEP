@@ -17,26 +17,77 @@ namespace ischool_IEP.DAO
         public static List<StudentIEPData> GetIEPDataByStudentID(string StudentID)
         {
             List<StudentIEPData> value = new List<StudentIEPData>();
+            Dictionary<string, StudentIEPData> sdataDict = new Dictionary<string, StudentIEPData>();
             if(!string.IsNullOrWhiteSpace(StudentID))
             {
-                string strSQL = "select uid as uid,student.id as sid,student.name as studentname,course.course_name as coursename,course.subject as subjectname,(case nickname when '' then teacher.teacher_name else teacher.teacher_name ||'('||teacher.nickname||')' end) as teachername,exam as exam,type as type,value as value from $ischool.iep.input_data inner join student on $ischool.iep.input_data.ref_student_id = student.id inner join course on $ischool.iep.input_data.ref_course_id = course.id inner join teacher on $ischool.iep.input_data.ref_teacher_id = teacher.id where student.id =" + StudentID + " order by studentname,coursename,exam,type,value";
+                string strSQL = "select uid as uid,student.id as sid,student.name as studentname,course.course_name as coursename,course.subject as subjectname,(case nickname when '' then teacher.teacher_name else teacher.teacher_name ||'('||teacher.nickname||')' end) as teachername,course.school_year as schoolyear,course.semester as semester,course.id as cid,teacher.id as tid from $ischool.iep.input_data inner join student on $ischool.iep.input_data.ref_student_id = student.id inner join course on $ischool.iep.input_data.ref_course_id = course.id inner join teacher on $ischool.iep.input_data.ref_teacher_id = teacher.id where student.id =" + StudentID + " order by studentname,coursename";
                 QueryHelper qh = new QueryHelper();
                 DataTable dt = qh.Select(strSQL);
 
                 foreach(DataRow dr in dt.Rows)
                 {
-                    StudentIEPData sd = new StudentIEPData();
-                    sd.UID = dr["uid"].ToString();
-                    sd.StudentID = int.Parse(dr["sid"].ToString());
-                    sd.CourseName = dr["coursename"].ToString();
-                    sd.StudentName = dr["studentname"].ToString();
-                    sd.TeacherName = dr["teachername"].ToString();
-                    sd.ExamName = dr["exam"].ToString();
-                    sd.ExamTypes = dr["type"].ToString();
-                    sd.ItemValue = dr["value"].ToString();
-                    value.Add(sd);
+                    try
+                    {
+                        StudentIEPData sd = new StudentIEPData();
+                        sd.UID = dr["uid"].ToString();
+                        sd.StudentID = int.Parse(dr["sid"].ToString());
+                        sd.CourseName = dr["coursename"].ToString();
+                        sd.StudentName = dr["studentname"].ToString();
+                        sd.TeacherName = dr["teachername"].ToString();
+                        sd.CourseID = int.Parse(dr["cid"].ToString());
+                        sd.TeacherID = int.Parse(dr["tid"].ToString());
+                        sd.SchoolYear = int.Parse(dr["schoolyear"].ToString());
+                        sd.Semester = int.Parse(dr["semester"].ToString());
+
+                        string key = sd.StudentID + "_" + sd.CourseID + "_" + sd.TeacherID;
+                        if (!sdataDict.ContainsKey(key))
+                            sdataDict.Add(key, sd);
+
+                    }catch(Exception ex)
+                    {
+
+                    }
                 }
+
+                // 取得 UDT 資料並整理
+                List<udt_input_data> dataList = UDTTransfer.GetIEPDataByStudentID(StudentID);
+                
+                foreach(udt_input_data data in dataList)
+                {
+                    string key = data.StudentID + "_" + data.CourseID + "_" + data.TeacherID;
+                    if(sdataDict.ContainsKey(key))
+                    {
+                        if(!sdataDict[key].ExamContent.ContainsKey(data.Exam))
+                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+
+                        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
+                            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+
+                        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Value);
+                    }
+                }
+
+                List<udt_input_memo> memoList = UDTTransfer.GetIEPDataMemoByStudentID(StudentID);
+                foreach (udt_input_memo data in memoList)
+                {
+                    string key = data.StudentID + "_" + data.CourseID + "_" + data.TeacherID;
+                    if (sdataDict.ContainsKey(key))
+                    {
+                        if (!sdataDict[key].ExamContent.ContainsKey(data.Exam))
+                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+
+                        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
+                            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+
+                        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Content);
+                    }
+                }
+
             }
+
+            foreach (StudentIEPData data in sdataDict.Values)
+                value.Add(data);
+
             return value;
         }
     }

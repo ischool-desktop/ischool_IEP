@@ -30,13 +30,9 @@
         {
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtCourseName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTeacherName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtExamName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtExamTypes = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtItemValue = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
@@ -71,36 +67,6 @@
             this.labelX2.TabIndex = 1;
             this.labelX2.Text = "教師姓名";
             // 
-            // labelX3
-            // 
-            this.labelX3.AutoSize = true;
-            this.labelX3.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.Class = "";
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(25, 94);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(60, 21);
-            this.labelX3.TabIndex = 2;
-            this.labelX3.Text = "試別名稱";
-            // 
-            // labelX4
-            // 
-            this.labelX4.AutoSize = true;
-            this.labelX4.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.Class = "";
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(25, 133);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(60, 21);
-            this.labelX4.TabIndex = 3;
-            this.labelX4.Text = "試別分類";
-            // 
             // labelX5
             // 
             this.labelX5.AutoSize = true;
@@ -110,7 +76,7 @@
             // 
             this.labelX5.BackgroundStyle.Class = "";
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(25, 173);
+            this.labelX5.Location = new System.Drawing.Point(25, 84);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(60, 21);
             this.labelX5.TabIndex = 4;
@@ -127,7 +93,7 @@
             this.txtCourseName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtCourseName.Location = new System.Drawing.Point(92, 14);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(205, 25);
+            this.txtCourseName.Size = new System.Drawing.Size(470, 25);
             this.txtCourseName.TabIndex = 5;
             // 
             // txtTeacherName
@@ -141,36 +107,8 @@
             this.txtTeacherName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTeacherName.Location = new System.Drawing.Point(92, 49);
             this.txtTeacherName.Name = "txtTeacherName";
-            this.txtTeacherName.Size = new System.Drawing.Size(205, 25);
+            this.txtTeacherName.Size = new System.Drawing.Size(470, 25);
             this.txtTeacherName.TabIndex = 6;
-            // 
-            // txtExamName
-            // 
-            this.txtExamName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtExamName.Border.Class = "TextBoxBorder";
-            this.txtExamName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtExamName.Location = new System.Drawing.Point(92, 92);
-            this.txtExamName.Name = "txtExamName";
-            this.txtExamName.Size = new System.Drawing.Size(205, 25);
-            this.txtExamName.TabIndex = 7;
-            // 
-            // txtExamTypes
-            // 
-            this.txtExamTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtExamTypes.Border.Class = "TextBoxBorder";
-            this.txtExamTypes.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtExamTypes.Location = new System.Drawing.Point(92, 131);
-            this.txtExamTypes.Name = "txtExamTypes";
-            this.txtExamTypes.Size = new System.Drawing.Size(205, 25);
-            this.txtExamTypes.TabIndex = 8;
             // 
             // txtItemValue
             // 
@@ -182,10 +120,10 @@
             // 
             this.txtItemValue.Border.Class = "TextBoxBorder";
             this.txtItemValue.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtItemValue.Location = new System.Drawing.Point(91, 173);
+            this.txtItemValue.Location = new System.Drawing.Point(91, 84);
             this.txtItemValue.Multiline = true;
             this.txtItemValue.Name = "txtItemValue";
-            this.txtItemValue.Size = new System.Drawing.Size(205, 183);
+            this.txtItemValue.Size = new System.Drawing.Size(470, 272);
             this.txtItemValue.TabIndex = 9;
             // 
             // btnExit
@@ -195,7 +133,7 @@
             this.btnExit.AutoSize = true;
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(221, 363);
+            this.btnExit.Location = new System.Drawing.Point(486, 363);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 25);
             this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -207,16 +145,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 394);
+            this.ClientSize = new System.Drawing.Size(579, 394);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtItemValue);
-            this.Controls.Add(this.txtExamTypes);
-            this.Controls.Add(this.txtExamName);
             this.Controls.Add(this.txtTeacherName);
             this.Controls.Add(this.txtCourseName);
             this.Controls.Add(this.labelX5);
-            this.Controls.Add(this.labelX4);
-            this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
@@ -232,13 +166,9 @@
 
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Controls.TextBoxX txtCourseName;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTeacherName;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtExamName;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtExamTypes;
         private DevComponents.DotNetBar.Controls.TextBoxX txtItemValue;
         private DevComponents.DotNetBar.ButtonX btnExit;
     }

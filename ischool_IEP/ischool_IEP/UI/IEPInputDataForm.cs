@@ -38,9 +38,18 @@ namespace ischool_IEP.UI
         {
             txtCourseName.Text = _StudentIEPData.CourseName;
             txtTeacherName.Text = _StudentIEPData.TeacherName;
-            txtExamName.Text = _StudentIEPData.ExamName;
-            txtExamTypes.Text = _StudentIEPData.ExamTypes;
-            txtItemValue.Text = _StudentIEPData.ItemValue;
+     
+            StringBuilder sb = new StringBuilder ();
+            foreach(string examName in _StudentIEPData.ExamContent.Keys)
+            {
+                sb.AppendLine(examName);
+                foreach(string type in _StudentIEPData.ExamContent[examName].Keys)
+                {
+                    sb.AppendLine(type+"："+_StudentIEPData.ExamContent[examName][type]);
+                }
+            }
+           
+            txtItemValue.Text = sb.ToString().Replace("\"","").Replace("[","").Replace("]","").Replace(",","");
         }
     }
 }

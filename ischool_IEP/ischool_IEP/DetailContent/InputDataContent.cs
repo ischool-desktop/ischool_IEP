@@ -49,12 +49,11 @@ namespace ischool_IEP.DetailContent
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Tag = sd;
-                lvi.Text = sd.CourseName;
-                //lvi.SubItems.Add(sd.CourseName);
+                lvi.Text = sd.SchoolYear.ToString();                
+                lvi.SubItems.Add(sd.Semester.ToString());
+                lvi.SubItems.Add(sd.CourseName);
                 lvi.SubItems.Add(sd.TeacherName);
-                lvi.SubItems.Add(sd.ExamName);
-                lvi.SubItems.Add(sd.ExamTypes);
-                lvi.SubItems.Add(sd.ItemValue);
+                
                 lvData.Items.Add(lvi);
             }
         }

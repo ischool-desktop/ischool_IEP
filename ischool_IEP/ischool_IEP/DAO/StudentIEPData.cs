@@ -11,16 +11,21 @@ namespace ischool_IEP.DAO
 
         public int StudentID { get; set; }
 
+        public int CourseID { get; set; }
+
+        public int TeacherID { get; set; }
+
         public string StudentName { get; set; }
+
+        public int SchoolYear { get; set; }
+
+        public int Semester { get; set; }
 
         public string CourseName { get; set; }
 
         public string TeacherName { get; set; }
 
-        public string ExamName { get; set; }
+        public Dictionary<string, Dictionary<string, StringBuilder>> ExamContent = new Dictionary<string, Dictionary<string, StringBuilder>>();
 
-        public string ExamTypes { get; set; }
-
-        public string ItemValue { get; set; }
     }
 }

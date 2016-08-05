@@ -31,9 +31,8 @@
             this.lvData = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.colCourseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTeacherName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colExamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colExamTypes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colItemValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSchoolYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSemester = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvData
@@ -44,11 +43,10 @@
             this.lvData.Border.Class = "ListViewBorder";
             this.lvData.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lvData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colSchoolYear,
+            this.colSemester,
             this.colCourseName,
-            this.colTeacherName,
-            this.colExamName,
-            this.colExamTypes,
-            this.colItemValue});
+            this.colTeacherName});
             this.lvData.FullRowSelect = true;
             this.lvData.Location = new System.Drawing.Point(28, 24);
             this.lvData.MultiSelect = false;
@@ -70,20 +68,13 @@
             this.colTeacherName.Text = "教師姓名";
             this.colTeacherName.Width = 80;
             // 
-            // colExamName
+            // colSchoolYear
             // 
-            this.colExamName.Text = "試別名稱";
-            this.colExamName.Width = 80;
+            this.colSchoolYear.Text = "學年度";
             // 
-            // colExamTypes
+            // colSemester
             // 
-            this.colExamTypes.Text = "試別類型";
-            this.colExamTypes.Width = 80;
-            // 
-            // colItemValue
-            // 
-            this.colItemValue.Text = "輸入內容";
-            this.colItemValue.Width = 150;
+            this.colSemester.Text = "學期";
             // 
             // InputDataContent
             // 
@@ -102,9 +93,8 @@
         private DevComponents.DotNetBar.Controls.ListViewEx lvData;
         private System.Windows.Forms.ColumnHeader colCourseName;
         private System.Windows.Forms.ColumnHeader colTeacherName;
-        private System.Windows.Forms.ColumnHeader colExamName;
-        private System.Windows.Forms.ColumnHeader colExamTypes;
-        private System.Windows.Forms.ColumnHeader colItemValue;
+        private System.Windows.Forms.ColumnHeader colSchoolYear;
+        private System.Windows.Forms.ColumnHeader colSemester;
 
     }
 }
