@@ -94,7 +94,8 @@
             this.txtCourseName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtCourseName.Location = new System.Drawing.Point(92, 14);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(470, 25);
+            this.txtCourseName.ReadOnly = true;
+            this.txtCourseName.Size = new System.Drawing.Size(629, 25);
             this.txtCourseName.TabIndex = 5;
             // 
             // txtTeacherName
@@ -109,7 +110,8 @@
             this.txtTeacherName.ImeMode = System.Windows.Forms.ImeMode.HangulFull;
             this.txtTeacherName.Location = new System.Drawing.Point(92, 49);
             this.txtTeacherName.Name = "txtTeacherName";
-            this.txtTeacherName.Size = new System.Drawing.Size(470, 25);
+            this.txtTeacherName.ReadOnly = true;
+            this.txtTeacherName.Size = new System.Drawing.Size(629, 25);
             this.txtTeacherName.TabIndex = 6;
             // 
             // txtItemValue
@@ -126,7 +128,8 @@
             this.txtItemValue.Location = new System.Drawing.Point(91, 84);
             this.txtItemValue.Multiline = true;
             this.txtItemValue.Name = "txtItemValue";
-            this.txtItemValue.Size = new System.Drawing.Size(470, 272);
+            this.txtItemValue.ReadOnly = true;
+            this.txtItemValue.Size = new System.Drawing.Size(629, 272);
             this.txtItemValue.TabIndex = 9;
             // 
             // btnExit
@@ -136,7 +139,7 @@
             this.btnExit.AutoSize = true;
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(486, 363);
+            this.btnExit.Location = new System.Drawing.Point(645, 363);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 25);
             this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -148,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 394);
+            this.ClientSize = new System.Drawing.Size(738, 394);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtItemValue);
             this.Controls.Add(this.txtTeacherName);

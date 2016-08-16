@@ -48,22 +48,29 @@ namespace ischool_IEP.DAO
 
                     }
                 }
-
+                
+                // 恩正建議穎驊改寫
                 // 取得 UDT 資料並整理
                 List<udt_input_data> dataList = UDTTransfer.GetIEPDataByStudentID(StudentID);
-                
-                foreach(udt_input_data data in dataList)
+
+                foreach (udt_input_data data in dataList)
                 {
                     string key = data.StudentID + "_" + data.CourseID + "_" + data.TeacherID;
-                    if(sdataDict.ContainsKey(key))
+                    if (sdataDict.ContainsKey(key))
                     {
-                        if(!sdataDict[key].ExamContent.ContainsKey(data.Exam))
-                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+                        if (!sdataDict[key].ExamContent.ContainsKey(data.Exam))
+                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, List<string>>());
 
                         if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
-                            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+                        {
+                            sdataDict[key].ExamContent[data.Exam].Add(data.Type,new List<string>());
 
-                        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Value);
+                            sdataDict[key].ExamContent[data.Exam][data.Type].Add(data.Value);                            
+                        }
+                        else
+                        {                        
+                            sdataDict[key].ExamContent[data.Exam][data.Type].Add(data.Value);                        
+                        }                        
                     }
                 }
 
@@ -74,14 +81,60 @@ namespace ischool_IEP.DAO
                     if (sdataDict.ContainsKey(key))
                     {
                         if (!sdataDict[key].ExamContent.ContainsKey(data.Exam))
-                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+                            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, List<string>>());
 
-                        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
-                            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+                        // memo 項的Type Key 通通設定為 "描述"，方便詳細資料排版
+                        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey("描述"))
+                        {
+                            sdataDict[key].ExamContent[data.Exam].Add("描述", new List<string>());
 
-                        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Content);
+                            sdataDict[key].ExamContent[data.Exam]["描述"].Add(data.Content);
+
+                        }
+
+                        else
+                        {
+                            sdataDict[key].ExamContent[data.Exam]["描述"].Add(data.Content);
+                                                
+                        }                        
                     }
                 }
+
+
+                //舊的
+                //// 取得 UDT 資料並整理
+                //List<udt_input_data> dataList = UDTTransfer.GetIEPDataByStudentID(StudentID);
+                
+                //foreach(udt_input_data data in dataList)
+                //{
+                //    string key = data.StudentID + "_" + data.CourseID + "_" + data.TeacherID;
+                //    if(sdataDict.ContainsKey(key))
+                //    {
+                //        if(!sdataDict[key].ExamContent.ContainsKey(data.Exam))
+                //            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+
+                //        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
+                //            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+
+                //        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Value);
+                //    }
+                //}
+
+                //List<udt_input_memo> memoList = UDTTransfer.GetIEPDataMemoByStudentID(StudentID);
+                //foreach (udt_input_memo data in memoList)
+                //{
+                //    string key = data.StudentID + "_" + data.CourseID + "_" + data.TeacherID;
+                //    if (sdataDict.ContainsKey(key))
+                //    {
+                //        if (!sdataDict[key].ExamContent.ContainsKey(data.Exam))
+                //            sdataDict[key].ExamContent.Add(data.Exam, new Dictionary<string, StringBuilder>());
+
+                //        if (!sdataDict[key].ExamContent[data.Exam].ContainsKey(data.Type))
+                //            sdataDict[key].ExamContent[data.Exam].Add(data.Type, new StringBuilder());
+
+                //        sdataDict[key].ExamContent[data.Exam][data.Type].AppendLine(data.Content);
+                //    }
+                //}
 
             }
 

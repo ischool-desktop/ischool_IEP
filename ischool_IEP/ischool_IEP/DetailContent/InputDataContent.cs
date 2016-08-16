@@ -23,9 +23,6 @@ namespace ischool_IEP.DetailContent
 
         List<StudentIEPData> _StudentIEPDataList;
 
-
-        List<StudentRecord> StuRec;
-
         AccessHelper accessHelper = new AccessHelper();
 
         List<udt_student> list;

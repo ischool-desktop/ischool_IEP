@@ -13,7 +13,7 @@ namespace ischool_IEP.UI
     public partial class IEPInputDataForm : FISCA.Presentation.Controls.BaseForm
     {
         StudentIEPData _StudentIEPData = new StudentIEPData();
-        
+
         public IEPInputDataForm()
         {
             InitializeComponent();
@@ -38,18 +38,25 @@ namespace ischool_IEP.UI
         {
             txtCourseName.Text = _StudentIEPData.CourseName;
             txtTeacherName.Text = _StudentIEPData.TeacherName;
-     
-            StringBuilder sb = new StringBuilder ();
-            foreach(string examName in _StudentIEPData.ExamContent.Keys)
+
+            StringBuilder sb = new StringBuilder();
+            foreach (string examName in _StudentIEPData.ExamContent.Keys)
             {
                 sb.AppendLine(examName);
-                foreach(string type in _StudentIEPData.ExamContent[examName].Keys)
-                {
-                    sb.AppendLine(type+"："+_StudentIEPData.ExamContent[examName][type]);
+
+                foreach (string type in _StudentIEPData.ExamContent[examName].Keys)
+                {                    
+                    //sb.AppendLine(type+"："+_StudentIEPData.ExamContent[examName][type]);
+                    sb.AppendLine("\t" + (type == "" ? "描述內容" : type) + "：");
+
+                    foreach (string content in _StudentIEPData.ExamContent[examName][type])
+                    {
+                        sb.AppendLine("\t\t" + content.ToString().Replace("\",\"", "").Trim('[', ']', '"'));
+                    }                    
                 }
             }
-           
-            txtItemValue.Text = sb.ToString().Replace("\"","").Replace("[","").Replace("]","").Replace(",","");
+
+            txtItemValue.Text = sb.ToString();
         }
     }
 }

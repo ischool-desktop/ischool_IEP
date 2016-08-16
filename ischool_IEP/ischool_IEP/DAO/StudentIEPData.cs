@@ -25,7 +25,12 @@ namespace ischool_IEP.DAO
 
         public string TeacherName { get; set; }
 
-        public Dictionary<string, Dictionary<string, StringBuilder>> ExamContent = new Dictionary<string, Dictionary<string, StringBuilder>>();
+        //舊的
+        //public Dictionary<string, Dictionary<string, StringBuilder>> ExamContent = new Dictionary<string, Dictionary<string, StringBuilder>>();
+        
+        //穎驊改寫
+        public Dictionary<string, Dictionary<string, List<string>>> ExamContent = new Dictionary<string, Dictionary<string, List<string>>>();
+
 
     }
 }
