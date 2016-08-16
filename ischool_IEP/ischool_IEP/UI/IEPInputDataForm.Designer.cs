@@ -91,6 +91,7 @@
             // 
             this.txtCourseName.Border.Class = "TextBoxBorder";
             this.txtCourseName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCourseName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtCourseName.Location = new System.Drawing.Point(92, 14);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(470, 25);
@@ -105,6 +106,7 @@
             // 
             this.txtTeacherName.Border.Class = "TextBoxBorder";
             this.txtTeacherName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTeacherName.ImeMode = System.Windows.Forms.ImeMode.HangulFull;
             this.txtTeacherName.Location = new System.Drawing.Point(92, 49);
             this.txtTeacherName.Name = "txtTeacherName";
             this.txtTeacherName.Size = new System.Drawing.Size(470, 25);
@@ -120,6 +122,7 @@
             // 
             this.txtItemValue.Border.Class = "TextBoxBorder";
             this.txtItemValue.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtItemValue.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtItemValue.Location = new System.Drawing.Point(91, 84);
             this.txtItemValue.Multiline = true;
             this.txtItemValue.Name = "txtItemValue";

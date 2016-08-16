@@ -85,6 +85,9 @@ namespace ischool_IEP
              if (UserPermission.Editable)
                  K12.Presentation.NLDPanels.Student.AddDetailBulider(new DetailBulider<DetailContent.InputDataContent>());
 
+
+             
+
          }
 
          static void _bgLLoadUDT_DoWork(object sender, DoWorkEventArgs e)

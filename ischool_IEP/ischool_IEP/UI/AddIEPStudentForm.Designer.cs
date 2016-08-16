@@ -84,6 +84,7 @@
             // 
             this.txtTag.Border.Class = "TextBoxBorder";
             this.txtTag.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTag.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.txtTag.Location = new System.Drawing.Point(92, 20);
             this.txtTag.Name = "txtTag";
             this.txtTag.Size = new System.Drawing.Size(214, 25);
