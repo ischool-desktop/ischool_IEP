@@ -26,8 +26,7 @@ namespace ischool_IEP.DetailContent
         AccessHelper accessHelper = new AccessHelper();
 
         List<udt_student> list;
-
-        public InputDataContent()
+        public  InputDataContent()
         {
             InitializeComponent();
             Group = "IEP輸入結果";
@@ -44,8 +43,16 @@ namespace ischool_IEP.DetailContent
             {
                 if (list.Count == 0)
                 {
-                    if (textBoxX1.Text != "")
-                        new udt_student() { StudentID = int.Parse(PrimaryKey), Tag = textBoxX1.Text };
+                    if (textBoxX1.Text != "") 
+                    {
+                   udt_student u = new udt_student() { StudentID = int.Parse(PrimaryKey), Tag = textBoxX1.Text };
+
+                   list.Add(u);
+
+                   list[0].Save();
+                       
+                    }
+                    
                 }
                 else
                 {
